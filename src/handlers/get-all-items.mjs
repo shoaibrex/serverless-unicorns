@@ -29,6 +29,7 @@ export const getAllItemsHandler = async (event) => {
     try {
         const data = await ddbDocClient.send(new ScanCommand(params));
         var items = data.Items;
+	items.push({ "unicorns-enabled": true });
     } catch (err) {
         console.log("Error", err);
     }
